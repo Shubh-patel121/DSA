@@ -10,8 +10,9 @@ for(let i = sampleArray.length - 1 ; i >= 0 ; i--){
             sampleArray[i] = elementToInsert;
         }
     }
+  }
 }
-}
-console.log("item is", sampleArray);
+
+console.log("original Array", sampleArray);
 insertItemIntoArray(33, 3)
-console.log("updatedSample", sampleArray);
+console.log("updatedSample Array", sampleArray);
