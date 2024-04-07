@@ -16,3 +16,7 @@ const mergeTwoArrays = (arr1, arr2) => {
 }
 
 console.log(mergeTwoArrays(sampleArray1, sampleArray2));
+
+// we can also do this by using es6 features directly, but to improve core thinking skills we used above;
+
+console.log("merged array",[...sampleArray1, ...sampleArray2]);
