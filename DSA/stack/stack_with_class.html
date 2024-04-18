@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Stack {
+        data = [];
+        currentSize = 0;
+        maxStackSize;
+
+        constructor(size) {
+          this.maxStackSize = size;
+        }
+
+        push(itemToBePushed) {
+          if (this.currentSize < this.maxStackSize) {
+            this.data.push(itemToBePushed);
+            this.currentSize++;
+          } else {
+            alert(
+              "Maximum item limit is reached. Please remove an item first."
+            );
+          }
+          this.display();
+        }
+
+        pop() {
+          if (this.currentSize > 0) {
+            this.data.pop();
+            this.currentSize--;
+          } else {
+            alert("Data is already empty. Please add items first.");
+          }
+          this.display();
+        }
+
+        display() {
+          const spanElement = document.getElementById("displayStack");
+          spanElement.textContent = this.data.join(", "); // Display stack data separated by comma
+        }
+      }
+
+      const testStack = new Stack(5);
+
+      // Function to add item to stack
+      function addItem() {
+        const inputValue = document.getElementById("stackInput").value;
+        if (inputValue.trim() !== "") {
+          testStack.push(inputValue);
+        } else {
+          alert("Please enter a value to add.");
+        }
+      }
+
+      // Function to remove item from stack
+      function removeItem() {
+        testStack.pop();
+      }
+    </script>
+
+    <h1>Basic Stack implementation</h1>
+    <div  style="margin-left:0px ; margin-bottom: 10px;">
+      <span>Stack Data:-</span>
+      <span id="displayStack"></span><br />
+    </div>
+    <input  type="number" placeholder="Enter number value to add" id="stackInput" />
+    <div style="margin-left:0px ; margin-top:10px" >
+      <button onclick="addItem()">Add</button>
+      <button onclick="removeItem()">Remove</button>
+    </div>
+  </body>
+</html>
