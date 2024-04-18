@@ -24,3 +24,5 @@ Stacks are widely used in programming languages for function call management (ca
 They are used in algorithms like depth-first search (DFS), backtracking, and expression evaluation.
 Undo mechanisms in text editors or applications often use stacks to store the history of operations.
 */
+
+
