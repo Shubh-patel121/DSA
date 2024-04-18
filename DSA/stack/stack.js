@@ -9,7 +9,7 @@ Last In, First Out (LIFO): The last element added to the stack is the first one 
 Operations:
 
 Push: Adding an element to the top of the stack.
-Pop: Removing the top element from the stack.
+Pop: Removing the top element from the stack and returns that element.
 Peek (or Top): Retrieving the top element without removing it.
 IsEmpty: Checking if the stack is empty.
 Size: Returning the number of elements in the stack.
