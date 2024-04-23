@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Implementation</title>
+</head>
+<body>
+    <script>
+        class Queue {
+            constructor() {
+                this.items = [];
+            }
+
+            enqueue(item) {
+                this.items.push(item);
+            }
+
+            dequeue() {
+                if (this.isEmpty()) {
+                    return "Queue is empty";
+                }
+                return this.items.shift();
+            }
+
+            peek() {
+                if (this.isEmpty()) {
+                    return "Queue is empty";
+                }
+                return this.items[0];
+            }
+
+            isEmpty() {
+                return this.items.length === 0;
+            }
+
+            size() {
+                return this.items.length;
+            }
+
+            display() {
+                return this.items.join(', ');
+            }
+        }
+
+        const queue = new Queue();
+
+        function addItem() {
+            const inputValue = document.getElementById("queueInput").value;
+            if (inputValue.trim() !== "") {
+                queue.enqueue(inputValue);
+                displayQueue();
+            } else {
+                alert("Please enter a value to add to the queue.");
+            }
+        }
+
+        function removeItem() {
+            if (!queue.isEmpty()) {
+                queue.dequeue();
+                displayQueue();
+            } else {
+                alert("Queue is already empty.");
+            }
+        }
+
+        function displayQueue() {
+            const displayElement = document.getElementById("queueDisplay");
+            displayElement.textContent = queue.display();
+        }
+    </script>
+
+    <h1>Queue Implementation</h1>
+    <span>Queue data:-</span>
+    <span id="queueDisplay"></span>
+    <div>
+    <label for="queueInput">Enter value to add:</label>
+    <input type="text" id="queueInput" placeholder="Enter value">
+    <button onclick="addItem()">Add</button>
+    <button onclick="removeItem()">Remove</button><br><br>
+    </div>
+</body>
+</html>
