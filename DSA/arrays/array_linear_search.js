@@ -7,6 +7,9 @@ let sampleArray = [2,55,67,88,32,98,22,16];
 // below function will return either found "index" otherwise "item is not found in array" ;
 // Note: here only we are looking for first match only;
 
+// Imp:- Complexity of this linear searching is O(n) (where n = number of elements into array)
+// comp. is n because linear searching is achieved with single for loop ;
+
 const searchItemInArray = (itemToBeSearched) =>{
   let indexOfItemToBeSearched ;
     for(let i = 0 ; i < sampleArray.length ; i++){
