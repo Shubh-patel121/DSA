@@ -148,44 +148,104 @@ class LinkedList {
     this.size++;
   }
 
-  // remove a item from linked list by value match; 
-   // Note:- value which needs to be added or removed from Linked list it has only three options
-   // 1. At start ;
-   // 2. In  between;
-   // 3. At end ;
-   // so need to take care whether this insertion or deletion affects head or tail;  
-  remove(value){
-      let current = this.head;
-      let previous = null ;
+  // remove a item from linked list by value match;
+  // Note:- value which needs to be added or removed from Linked list it has only three options
+  // 1. At start ;
+  // 2. In  between;
+  // 3. At end ;
+  // so need to take care whether this insertion or deletion affects head or tail;
+  remove(value) {
+    let current = this.head;
+    let previous = null;
 
-      while(current){
-
-        if(current.value === value){
-            // if previous is not null means we are not removing at start;
-            if (previous) {
-                // Link previous node to the next node ;
-                previous.next = current.next; 
-            } else {
-                // if previous is null means need to remove head, update the head
-                this.head = current.next; 
-            }
-
-             // If current.next is null means we reached at the end and need to update the tail
-            if (!current.next) {
-                this.tail = previous;
-            }
-
-            this.size--;
-            return "node is removed successfully"
-        }else{
-            previous = current;
-            current = current.next; 
+    while (current) {
+      if (current.value === value) {
+        // if previous is not null means we are not removing at start;
+        if (previous) {
+          // Link previous node to the next node ;
+          previous.next = current.next;
+        } else {
+          // if previous is null means need to remove head, update the head
+          this.head = current.next;
         }
+
+        // If current.next is null means we reached at the end and need to update the tail
+        if (!current.next) {
+          this.tail = previous;
+        }
+
+        this.size--;
+        return "node is removed successfully";
+      } else {
+        previous = current;
+        current = current.next;
       }
-  
-      return "Please add correct value, value which needs to be removed is not found in the linked list"
+    }
+
+    return "Please add correct value, value which needs to be removed is not found in the linked list";
   }
+
+  // find the node using the value;
+
+  find(value) {
+    let current = this.head;
+
+    while (current) {
+      if (current.value === value) {
+        return current;
+      }
+      current = current.next;
+    }
+
+    return "value node not found"
+  }
+
+  reverse() {
+    let previous = null;
+    let current = this.head;
+    this.tail = this.head;
+
+    while (current) {
+        let nextNode = current.next;
+        current.next = previous;
+        previous = current;
+        current = nextNode;
+    }
+
+    this.head = previous; // Update the head to the last node in the original list
 }
+
+ // Find the middle node of the list
+ findMiddle() {
+  if (!this.head) {
+      return null; // Return null if the list is empty
+  }
+
+  let slowPointer = this.head;
+  let fastPointer = this.head;
+
+  while (fastPointer && fastPointer.next) {
+      slowPointer = slowPointer.next;
+      fastPointer = fastPointer.next.next;
+  }
+
+  return slowPointer; // Slow pointer will be at the middle node
+}
+
+// Print the list
+print() {
+  let current = this.head;
+  const values = [];
+
+  while (current) {
+      values.push(current.value); // Add values to an array
+      current = current.next;
+  }
+
+  console.log(values.join(' -> ')); // Print the values in the list
+}
+}
+
 
 const linkedList_initialization = new LinkedList();
 console.log("first LinkedListInitialization:-", linkedList_initialization);
@@ -207,5 +267,19 @@ console.log(
 let remove = linkedList.remove(800);
 console.log(
   "remove from linked list:-",
-  linkedList, "remove method return value:-", remove
+  linkedList,
+  "remove method return value:-",
+  remove
 );
+
+let findResult = linkedList.find(100);
+console.log("find result:-", findResult);
+
+console.log("before reverse",linkedList);
+linkedList.reverse();
+console.log("after reverse", linkedList)
+
+let middleNode = linkedList.findMiddle();
+console.log("middleNode:-",middleNode );
+
+console.log("print linked list:-", linkedList.print());
