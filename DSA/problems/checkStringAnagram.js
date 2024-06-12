@@ -1,6 +1,6 @@
 // Problem:- check whether two strings are anagram or not;
 // Note:- here we are considering character casing matters, 
-//if you do not want to consider casing make both string case same first either by using .lowecase method;
+//if you do not want to consider casing make both string case same first either by using .lowercase method;
 
 const getStringCharacterCountObject = (str) => {
   let obj = {};
