@@ -12,6 +12,7 @@ const removeDuplicates = (nums) => {
   }
   // Note: if ask to modify in same array then here makes nums length 0 then add values ;
   // nums.length = 0 ;
+  // also we can use object.keys ;
   for (key in obj) {
     arr.push(key);
     // nums.push(key);
