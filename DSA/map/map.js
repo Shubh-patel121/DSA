@@ -68,4 +68,4 @@ for(let [key, value] of newMap.entries()){
 console.log("size of the map is",newMap.size);
 
 // 8. clear the complete map using clear method;
-console.log("new map value after clearing the map", newMap.clear())
+console.log("new map value after clearing the map", newMap.clear());
