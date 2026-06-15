@@ -4,3 +4,9 @@ let sampleArray = [ 1,2,3,4,5,8] ;
 for(let i=0 ; i < sampleArray.length ; i++){
     console.log("i-",i, "value is" , sampleArray[i]);
 }
+
+let newA = [1,2,3,"string", 4, true ] ;
+
+for (let i=0 ; i < newA.length ; i++){
+    console.log("value of :", i , "is" , newA[i] )
+}
