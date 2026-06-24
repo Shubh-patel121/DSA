@@ -61,7 +61,6 @@ console.log("\n--- CASE 5: Operating on an Empty Array ---");
 let arr5 = [];
 console.log(insertItemAtAnyPlace(arr5, "SOLO", 0));
 // Output: ['SOLO']
-cfzdf
 /* 
 Time Complexity: $O(n)$ In the worst-case scenario (inserting at index 0), every single item in the array must be shifted one slot over. If the array has $n$ items, the loop executes $n$ times.Space Complexity: $O(1)$ auxiliary spaceBecause we are mutating the array directly in place without creating a secondary helper array, the algorithm uses a constant amount of extra memory space regardless of input size.
 */
