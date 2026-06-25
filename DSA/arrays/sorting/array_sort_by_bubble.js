@@ -22,3 +22,12 @@ const sortByBubble = (data) => {
 };
 
 console.log("sorted array is:", sortByBubble(sampleArray));
+
+/* 
+
+Without subtracting - i, your code would blindly scan elements at the end of the array
+that are already perfectly sorted over and over again. Subtracting i shrinks the search
+window by 1 element on every single pass, cutting out thousands of useless calculations
+on large data sets!
+
+*/
